@@ -228,7 +228,7 @@ public partial class Form1 : Form
                                         continue;
                                     }
                                 }
-                                Console.WriteLine("[DyeGlasses] generate vertex [{0},{1}]",iN,jN);
+                                // Console.WriteLine("[DyeGlasses] generate vertex [{0},{1}]",iN,jN);
                                 vertexes.Add(new Vertex(iN,jN));
                             }
                         }
@@ -241,7 +241,7 @@ public partial class Form1 : Form
                     g.SmoothingMode = SmoothingMode.HighQuality;
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     Pen blackPen = new Pen(Color.FromArgb(255,0,0,0));
-                    Console.WriteLine("[DyeGlasses] add neibours");
+                    // Console.WriteLine("[DyeGlasses] add neibours");
                     foreach(Vertex vertexA in vertexes){
                         foreach(Vertex vertexB in vertexes){
                             if(vertexA.self != vertexB.self &&
