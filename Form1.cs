@@ -152,8 +152,8 @@ public partial class Form1 : Form
         }
     }
     private void DyeGlasses(object sender, EventArgs e){
-        int seed = 777;
-        int spacing = 32;
+        int seed = int.Parse(this.seedText.Text);
+        int spacing = this.spacingBar.Value;
         if (!(Directory.Exists(@".\Input")))
             Directory.CreateDirectory(@".\Input");
         if (!(Directory.Exists(@".\Output")))
@@ -322,6 +322,34 @@ public partial class Form1 : Form
                 originBmp.Dispose();
                 originImg.Dispose();
             }
+        }
+    }
+    private void SpacingBarScroll(object sender, EventArgs e){
+        this.spacingText.Text = this.spacingBar.Value.ToString();
+    }
+    private void SpacingTextChanged(object sender, EventArgs e){
+        try
+        {
+            int spacing = int.Parse(this.spacingText.Text);
+            this.spacingBar.Value = spacing;
+        }
+        catch (System.Exception)
+        {
+            
+            // throw;
+        }
+    }
+    string prevSeedText = "777";
+    private void SeedTextChanged(object sender, EventArgs e){
+        try
+        {
+            int seed = int.Parse(this.seedText.Text);
+            prevSeedText = this.seedText.Text;
+        }
+        catch (System.Exception)
+        {
+            this.seedText.Text = prevSeedText;
+            // throw;
         }
     }
 }
